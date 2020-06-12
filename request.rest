@@ -1,0 +1,67 @@
+
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZDYyZTM4NWMxMDE4MTYxODFiOTkwMiIsImlhdCI6MTU5MTA5NDg2N30.0owH-PmTa2IM4P4_Ws25rg2ahNT73c4-T7-GTVF3Txw
+
+@lastCreatedCourseId = 5ed62eb05c101816181b9903
+
+###
+GET http://localhost:3000/api/courses
+Authorization: {{token}}
+
+###
+GET http://localhost:3000/api/courses/{{lastCreatedCourseId}}
+Authorization: {{token}}
+
+###
+POST http://localhost:3000/api/courses
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "name":"How to shhh three"
+}
+
+###
+PUT http://localhost:3000/api/courses/{{lastCreatedCourseId}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "name":"How to shhhh FOur"
+}
+
+###
+DELETE http://localhost:3000/api/courses/{{lastCreatedCourseId}}
+Authorization: {{token}}
+
+###
+GET http://localhost:3000/api/users/
+Authorization: {{token}}
+###
+GET http://localhost:3000/api/users/me
+Authorization: {{token}}
+
+### SiGNUP
+POST http://localhost:3000/api/users/
+Content-Type: application/json
+
+{
+    "name":"Yasar",
+    "email":"yasararafatui@gmail.com",
+    "password":"P@ssW0rd123"
+}
+###
+DELETE http://localhost:3000/api/users/me 
+Authorization: {{token}}
+
+### LOGIN
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email":"yasararafatui@gmail.com",
+    "password":"P@ssW0rd123"
+}
+
+### LOGOUT
+POST http://localhost:3000/api/users/logout
+Authorization: {{token}}
